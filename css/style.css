@@ -1,0 +1,1093 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-shadow: 1px 1px 2px #000, 0 0 1em #434343, 0 0 0.2em #eee;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: linear-gradient(#434343, #000);
+}
+
+.inner {
+  width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+header.on .inner h1 a {
+  transform: translateX(0);
+}
+header.on .inner .gnb_scroll li button {
+  transform: translateX(0);
+}
+header.on .inner .gnb_scroll li:nth-of-type(1) button {
+  transition-delay: 1.65s;
+}
+header.on .inner .gnb_scroll li:nth-of-type(2) button {
+  transition-delay: 1.95s;
+}
+header.on .inner .gnb_scroll li:nth-of-type(3) button {
+  transition-delay: 2.15s;
+}
+header .inner {
+  height: 100%;
+  width: 100%;
+  padding: 20px 10vw;
+}
+header .inner::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+header .inner h1 {
+  float: left;
+  font: 26px/1 "arial";
+  overflow: hidden;
+}
+header .inner h1 a {
+  display: block;
+  color: #fff;
+  transition: 0.5s;
+  transform: translateX(-100%);
+}
+header .inner .gnb_scroll {
+  float: right;
+  display: flex;
+}
+header .inner .gnb_scroll li {
+  width: 9.8vw;
+  height: 100%;
+  overflow: hidden;
+}
+header .inner .gnb_scroll li button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #fff;
+  text-align: left;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.5s;
+  transform: translateX(-100%);
+}
+header .inner .btnCall {
+  position: absolute;
+  right: 10vw;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+header .inner .btnCall::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: top 0.5s 0s, transform 0.5s 0.5s;
+}
+header .inner .btnCall::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: bottom 0.5s 0s, transform 0.5s 0.5s;
+}
+header .inner .btnCall span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  transition: 1s;
+  text-indent: -9999px;
+}
+header .inner .btnCall.on::before {
+  top: 50%;
+  margin-top: -1px;
+  transform: rotate(45deg);
+}
+header .inner .btnCall.on::after {
+  bottom: 50%;
+  margin-bottom: -1px;
+  transform: rotate(-45deg);
+}
+header .inner .btnCall.on span {
+  transform: translateX(100%);
+  opacity: 0;
+}
+header .inner .menuMo {
+  width: 270px;
+  height: 100vh;
+  background: #111;
+  position: fixed;
+  top: 0;
+  left: -270px;
+  padding: 35px 30px;
+  z-index: 10;
+  transition: 0.5s;
+  display: none;
+}
+header .inner .menuMo.on {
+  left: 0;
+}
+header .inner .menuMo h1 {
+  padding-bottom: 20px;
+}
+header .inner .menuMo h1 a {
+  display: block;
+  font: bold 24px/1 "arial";
+  color: #fff;
+  text-align: center;
+}
+header .inner .menuMo h1 span {
+  font-size: 12px;
+  color: #fff;
+}
+header .inner .menuMo .close {
+  position: absolute;
+  right: 30px;
+  top: 40px;
+  font-size: 16px;
+  color: yellow;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+header .inner .menuMo #gnbMo {
+  width: 100%;
+  float: left;
+}
+header .inner .menuMo #gnbMo li a {
+  display: block;
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 1px solid #888;
+  font: bold 18px/1 "arial";
+  color: #fff;
+  text-align: left;
+}
+
+figure {
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s;
+}
+figure .frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+figure .frame article {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+figure .frame article.on .bg > div {
+  top: 0%;
+  opacity: 1;
+}
+figure .frame article.on .txtBox {
+  opacity: 1;
+}
+figure .frame article.on .line {
+  opacity: 1;
+}
+figure .frame article .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-position: 9999px;
+  background-size: cover;
+  opacity: 0.7;
+}
+figure .frame article .bg > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  opacity: 0;
+  background-image: inherit;
+  background-size: inherit;
+  background-repeat: inherit;
+  background-position: center;
+  transition-property: top, opacity;
+  transition-duration: 0.5s;
+  transform: translateZ(0);
+}
+figure .frame article .line {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+figure .frame article .line > div {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border-right: 1px solid #fff;
+  opacity: 0.2;
+}
+figure .frame article .txtBox {
+  padding: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+  opacity: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+figure .frame article .txtBox h2 {
+  font: 46px/1 "arial";
+  color: #eee;
+  text-shadow: 1px 1px 2px #000, 0 0 1em #434343, 0 0 0.2em #eee;
+}
+figure .frame article .txtBox h2 p {
+  font: 20px/1.3 "arial";
+  color: #eee;
+  margin-top: 20px;
+}
+
+.intro_skill {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+}
+.intro_skill .inner {
+  display: flex;
+  justify-content: center;
+  transition: 0.5s;
+}
+.intro_skill .inner .leftBox {
+  width: 50%;
+}
+.intro_skill .inner .leftBox h2 {
+  font: 36px/1 "arial";
+  color: #fff;
+  margin-bottom: 50px;
+}
+.intro_skill .inner .leftBox .intro_bg {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 50px;
+  position: relative;
+  display: flex;
+  gap: 70px;
+}
+.intro_skill .inner .leftBox .intro_bg .pic {
+  position: relative;
+  width: 400px;
+  height: 100%;
+  border: 1px solid #fff;
+  background: url(../img/profil.jpg) no-repeat center/cover;
+}
+.intro_skill .inner .leftBox .intro_bg .pic::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transform: rotate(5deg);
+  z-index: -1;
+}
+.intro_skill .inner .leftBox .intro_bg .links {
+  width: 70px;
+  height: 80%;
+  padding: 20px 0;
+  background: #333;
+  border-radius: 7px;
+  box-shadow: 5px 5px 5px #111;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.intro_skill .inner .leftBox .intro_bg .links a {
+  width: 100%;
+  display: block;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+.intro_skill .inner .leftBox .intro_bg .links a i {
+  display: block;
+  font-size: 20px;
+  text-shadow: none;
+  margin-bottom: 10px;
+}
+.intro_skill .inner .leftBox .txtBox {
+  color: #fff;
+  font: 16px/1.3 "arial";
+  margin-bottom: 30px;
+  transition: 0.5s;
+}
+.intro_skill .inner .rightBox {
+  width: 50%;
+}
+.intro_skill .inner .rightBox h2 {
+  font: 36px/1 "arial";
+  color: #fff;
+  margin-bottom: 50px;
+}
+.intro_skill .inner .rightBox ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+.intro_skill .inner .rightBox ul li {
+  width: calc(50% - 40px);
+  background: #333;
+  padding: 20px;
+  border-radius: 7px;
+  box-shadow: 5px 5px 5px #111;
+}
+.intro_skill .inner .rightBox ul li .title {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.intro_skill .inner .rightBox ul li .title i {
+  text-shadow: none;
+  font-size: 28px;
+  color: yellow;
+}
+.intro_skill .inner .rightBox ul li .title h3 {
+  font: 26px/1 "arial";
+  color: #fff;
+}
+.intro_skill .inner .rightBox ul li span {
+  display: block;
+  font: 14px/1.7 "arial";
+  color: #fff;
+}
+
+.history_career {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+}
+.history_career .inner {
+  display: flex;
+  justify-content: center;
+  transition: 0.5s;
+}
+.history_career .inner .leftBox {
+  width: 50%;
+}
+.history_career .inner .leftBox h2 {
+  font: 36px/1 "arial";
+  color: #fff;
+  margin-bottom: 50px;
+}
+.history_career .inner .leftBox ul {
+  width: 100%;
+}
+.history_career .inner .leftBox ul li {
+  width: 100%;
+  padding: 0px 0 20px;
+  padding-left: 1.25rem;
+  border-left: 1px solid yellow;
+  color: #fff;
+}
+.history_career .inner .leftBox ul li:last-child {
+  padding-bottom: 0;
+}
+.history_career .inner .leftBox ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: yellow;
+  transform: translateX(-50%);
+}
+.history_career .inner .leftBox ul li p {
+  transform: translateY(-6px);
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+.history_career .inner .leftBox ul li p:nth-of-type(2) {
+  color: yellow;
+  font-size: 12px;
+}
+.history_career .inner .rightBox {
+  width: 50%;
+}
+.history_career .inner .rightBox h2 {
+  font: 36px/1 "arial";
+  color: #fff;
+  margin-bottom: 50px;
+}
+.history_career .inner .rightBox ul {
+  width: 100%;
+}
+.history_career .inner .rightBox ul li {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0 20px 5px;
+  position: relative;
+  border-bottom: 1px solid yellow;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.history_career .inner .rightBox ul li.on .txtBox {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 30px;
+}
+.history_career .inner .rightBox ul li.on .title::before {
+  transform: rotate(135deg);
+  color: yellow;
+}
+.history_career .inner .rightBox ul li .title {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: #fff;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.history_career .inner .rightBox ul li .title::before {
+  content: "+";
+  color: #fff;
+  font-size: 34px;
+  position: absolute;
+  right: 30px;
+  transform-origin: center center;
+  transition: all 1s;
+}
+.history_career .inner .rightBox ul li .title h3 {
+  font-size: 16px;
+}
+.history_career .inner .rightBox ul li .title p {
+  font-size: 14px;
+}
+.history_career .inner .rightBox ul li .title > span {
+  font-size: 12px;
+  color: yellow;
+}
+.history_career .inner .rightBox ul li .txtBox {
+  width: 100%;
+  max-height: 0;
+  transition: 0.5s;
+  opacity: 0;
+  color: #fff;
+}
+.history_career .inner .rightBox ul li .txtBox h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.history_career .inner .rightBox ul li .txtBox p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.history_career .inner .rightBox ul li .txtBox p > span {
+  font-size: 12px;
+  color: #bbb;
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.history_career .inner .rightBox ul li .txtBox p:last-of-type {
+  margin-bottom: 15px;
+}
+.history_career .inner .rightBox ul li .txtBox p a {
+  color: yellow;
+}
+.history_career .inner .rightBox ul li .txtBox span {
+  font-size: 14px;
+}
+
+.project {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+}
+.project .inner {
+  transition: 0.5s;
+}
+.project .inner h2 {
+  font: 36px/1 "arial";
+  color: #fff;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.project .inner > .leftBox {
+  height: 100%;
+  width: 100%;
+}
+.project .inner > .leftBox .swiper {
+  width: 100%;
+  height: 550px;
+}
+.project .inner > .leftBox .swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  background: #333;
+  border-radius: 7px;
+  box-shadow: 5px 5px 5px #111;
+  overflow: hidden;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox {
+  height: 100%;
+  width: 40%;
+  background: #222;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox {
+  padding: 50px 0 50px 50px;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox > h3 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox > h3 span {
+  color: yellow;
+  font-size: 30px;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info {
+  margin-bottom: 30px;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-shadow: none;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info p {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 5px;
+  text-shadow: none;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info p span {
+  font-size: 16px;
+  color: #fff;
+  text-shadow: none;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .feature {
+  margin-bottom: 30px;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .feature h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-shadow: none;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .feature ul {
+  padding-left: 20px;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .feature ul li {
+  font-size: 16px;
+  list-style: disc;
+  text-shadow: none;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .btns {
+  display: flex;
+  gap: 10px;
+}
+.project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .btns a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 14px;
+  padding: 15px 10px;
+  text-shadow: none;
+  background: #111;
+}
+.project .inner > .leftBox .swiper .swiper-slide .rightBox {
+  height: 100%;
+  width: 60%;
+}
+.project .inner > .leftBox .swiper .swiper-slide .rightBox .imgBox {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.project .inner > .leftBox .swiper .swiper-slide .rightBox .imgBox .pic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.15);
+  width: 553px;
+  height: 400px;
+  background: url(../img/project01.png) no-repeat center/cover;
+}
+
+.scroll_reset {
+  position: fixed;
+  right: 5vw;
+  bottom: 5vw;
+  color: #fff;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  opacity: 0;
+  display: none;
+  z-index: 5;
+  cursor: pointer;
+}
+.scroll_reset.on {
+  display: block;
+  opacity: 1;
+}
+
+@media screen and (max-width: 1400px) {
+  header .inner {
+    width: 100%;
+  }
+  header .inner .gnb_scroll {
+    display: none;
+  }
+  header .inner .btnCall {
+    display: block;
+  }
+  header .inner .menuMo {
+    display: block;
+  }
+  .intro_skill {
+    padding: 50px 0;
+  }
+  .intro_skill .inner {
+    width: 100%;
+    padding: 0 40px;
+    flex-wrap: wrap;
+  }
+  .intro_skill .inner .leftBox {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .intro_skill .inner .leftBox h2 {
+    display: block;
+    width: 100%;
+  }
+  .intro_skill .inner .leftBox .intro_bg {
+    width: 50%;
+  }
+  .intro_skill .inner .leftBox .txtBox {
+    padding: 20px;
+    width: 50%;
+  }
+  .intro_skill .inner .rightBox {
+    width: 100%;
+  }
+  .intro_skill .inner .rightBox ul {
+    justify-content: flex-start;
+  }
+  .intro_skill .inner .rightBox ul li {
+    width: calc(33.3333333333% - 40px);
+  }
+  .history_career {
+    padding: 50px 0;
+  }
+  .history_career .inner {
+    width: 100%;
+    padding: 0 40px;
+  }
+  .history_career .inner .leftBox ul li::before {
+    left: 40px;
+  }
+  .project {
+    padding: 50px 0;
+  }
+  .project .inner {
+    width: 100%;
+    padding: 0 40px;
+  }
+  .project .inner h2 {
+    font: 36px/1 "arial";
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox {
+    padding: 50px 20px 20px 20px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox > h3 {
+    font-size: 18px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox > h3 span {
+    font-size: 26px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info h4 {
+    font-size: 16px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info p {
+    font-size: 14px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info p span {
+    font-size: 14px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .feature h4 {
+    font-size: 16px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .feature ul li {
+    font-size: 14px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .btns a {
+    font-size: 12px;
+    padding: 0;
+    width: 80px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .rightBox {
+    height: 100%;
+    width: 60%;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .rightBox .imgBox .pic {
+    transform: translate(-50%, -50%) scale(0.85);
+    width: 553px;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 900px) {
+  figure {
+    height: 80vh;
+  }
+  figure .frame article .txtBox h2 {
+    font-size: 36px;
+  }
+  figure .frame article .txtBox h2 p {
+    font-size: 18px;
+  }
+  .intro_skill .inner .leftBox {
+    margin-bottom: 30px;
+  }
+  .intro_skill .inner .leftBox .intro_bg {
+    width: 100%;
+  }
+  .intro_skill .inner .leftBox .txtBox {
+    padding: 0px;
+    width: 100%;
+  }
+  .intro_skill .inner .rightBox ul li {
+    width: calc(50% - 40px);
+  }
+  .history_career .inner {
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+  .history_career .inner .leftBox {
+    width: 100%;
+  }
+  .history_career .inner .leftBox h2 {
+    font: 36px/1 "arial";
+    margin-bottom: 30px;
+  }
+  .history_career .inner .leftBox ul li::before {
+    left: 40px;
+  }
+  .history_career .inner .rightBox {
+    width: 100%;
+  }
+  .history_career .inner .rightBox h2 {
+    margin-bottom: 30px;
+  }
+  .history_career .inner .rightBox ul {
+    width: 100%;
+  }
+  .history_career .inner .rightBox ul li {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0 20px 5px;
+    position: relative;
+    border-bottom: 1px solid yellow;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .history_career .inner .rightBox ul li .title {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .history_career .inner .rightBox ul li .title h3 {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  .history_career .inner .rightBox ul li .title p {
+    font-size: 14px;
+  }
+  .history_career .inner .rightBox ul li .title > span {
+    width: 100%;
+    display: block;
+    font-size: 12px;
+    color: yellow;
+  }
+  .project .inner > .leftBox .swiper {
+    height: 900px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide {
+    flex-wrap: wrap;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 20px 20px 20px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox {
+    padding: 0;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox > h3 {
+    font-size: 18px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox > h3 span {
+    font-size: 26px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info h4 {
+    font-size: 16px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info p {
+    font-size: 14px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info p span {
+    font-size: 14px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .feature h4 {
+    font-size: 16px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .feature ul li {
+    font-size: 14px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .btns a {
+    font-size: 12px;
+    padding: 0;
+    width: 80px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .rightBox {
+    width: 100%;
+    height: 50%;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .rightBox .imgBox .pic {
+    transform: translate(-50%, -50%) scale(0.75);
+    width: 553px;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 540px) {
+  header .inner h1 {
+    font-size: 16px;
+  }
+  figure {
+    height: 60vh;
+  }
+  figure .frame article .txtBox h2 {
+    font-size: 22px;
+  }
+  figure .frame article .txtBox h2 p {
+    font-size: 14px;
+  }
+  .intro_skill .inner {
+    padding: 0 30px;
+  }
+  .intro_skill .inner h2 {
+    font-size: 26px;
+  }
+  .intro_skill .inner .leftBox {
+    margin-bottom: 30px;
+    gap: 60px;
+  }
+  .intro_skill .inner .leftBox h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+  .intro_skill .inner .leftBox .intro_bg {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .intro_skill .inner .leftBox .intro_bg .pic {
+    width: 100%;
+  }
+  .intro_skill .inner .leftBox .intro_bg .links {
+    width: 100%;
+    height: 50px;
+    flex-direction: inherit;
+    padding: 0;
+    align-items: center;
+  }
+  .intro_skill .inner .leftBox .intro_bg .links a {
+    font-size: 12px;
+  }
+  .intro_skill .inner .leftBox .intro_bg .links a i {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .intro_skill .inner .leftBox .txtBox {
+    padding: 0px;
+    width: 100%;
+    font-size: 12px;
+  }
+  .intro_skill .inner .rightBox h2 {
+    margin-bottom: 30px;
+    font-size: 26px;
+  }
+  .intro_skill .inner .rightBox ul {
+    gap: 20px;
+  }
+  .intro_skill .inner .rightBox ul li {
+    width: 100%;
+  }
+  .intro_skill .inner .rightBox ul li .title i {
+    font-size: 16px;
+  }
+  .intro_skill .inner .rightBox ul li .title h3 {
+    font-size: 14px;
+  }
+  .intro_skill .inner .rightBox ul li span {
+    font-size: 12px;
+  }
+  .history_career .inner {
+    padding: 0 30px;
+  }
+  .history_career .inner .leftBox h2 {
+    font: 26px/1 "arial";
+    margin-bottom: 30px;
+  }
+  .history_career .inner .leftBox ul li p {
+    font-size: 14px;
+  }
+  .history_career .inner .rightBox h2 {
+    font: 30px/1 "arial";
+    margin-bottom: 10px;
+  }
+  .history_career .inner .rightBox ul li {
+    padding: 20px 0 20px 5px;
+  }
+  .history_career .inner .rightBox ul li.on .txtBox {
+    max-height: 400px;
+  }
+  .history_career .inner .rightBox ul li .title {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .history_career .inner .rightBox ul li .title::before {
+    right: 10px;
+  }
+  .history_career .inner .rightBox ul li .title h3 {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  .history_career .inner .rightBox ul li .title p {
+    font-size: 14px;
+  }
+  .history_career .inner .rightBox ul li .txtBox h3 {
+    font-size: 14px;
+  }
+  .history_career .inner .rightBox ul li .txtBox p {
+    font-size: 14px;
+  }
+  .history_career .inner .rightBox ul li .txtBox p > span {
+    font-size: 12px;
+  }
+  .history_career .inner .rightBox ul li .txtBox span {
+    font-size: 12px;
+  }
+  .project .inner h2 {
+    font-size: 26px;
+  }
+  .project .inner > .leftBox .swiper {
+    height: 500px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide {
+    flex-wrap: wrap;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox {
+    width: 100%;
+    height: 100%;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox {
+    padding: 0;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox > h3 {
+    font-size: 16px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox > h3 span {
+    font-size: 24px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info h4 {
+    font-size: 14px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info p {
+    font-size: 14px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .info p span {
+    font-size: 12px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .feature h4 {
+    font-size: 14px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .leftBox .txtBox .feature ul li {
+    font-size: 12px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide .rightBox {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

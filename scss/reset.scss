@@ -1,0 +1,23 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-shadow: 1px 1px 2px #000, 0 0 1em #434343, 0 0 0.2em #eee;
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+body {
+	background: linear-gradient(#434343, #000);
+	// background: #eee;
+}
+.inner {
+	width: 1400px;
+	margin: 0 auto;
+	position: relative;
+}

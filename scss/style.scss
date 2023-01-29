@@ -1,0 +1,1251 @@
+@import 'reset.scss';
+
+header {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+
+	&.on {
+		.inner {
+			h1 {
+				a {
+					transform: translateX(0);
+				}
+			}
+
+			.gnb_scroll {
+				li {
+					button {
+						transform: translateX(0);
+					}
+					&:nth-of-type(1) button {
+						transition-delay: 1.65s;
+					}
+					&:nth-of-type(2) button {
+						transition-delay: 1.95s;
+					}
+					&:nth-of-type(3) button {
+						transition-delay: 2.15s;
+					}
+				}
+			}
+		}
+	}
+	.inner {
+		height: 100%;
+		width: 100%;
+		padding: 20px 10vw;
+
+		&::after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		h1 {
+			float: left;
+			font: 26px/1 'arial';
+			overflow: hidden;
+			a {
+				display: block;
+				color: #fff;
+				transition: 0.5s;
+				transform: translateX(-100%);
+			}
+		}
+
+		.gnb_scroll {
+			float: right;
+			display: flex;
+			li {
+				width: 9.8vw;
+				height: 100%;
+				overflow: hidden;
+				button {
+					width: 100%;
+					background: transparent;
+					border: none;
+					color: #fff;
+					text-align: left;
+					font-size: 22px;
+					cursor: pointer;
+					transition: 0.5s;
+					transform: translateX(-100%);
+				}
+			}
+		}
+
+		.btnCall {
+			position: absolute;
+			right: 10vw;
+			top: 50%;
+			transform: translateY(-50%);
+			display: none;
+			width: 20px;
+			height: 20px;
+			&::before {
+				content: '';
+				display: block;
+				width: 100%;
+				height: 2px;
+				background: #fff;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: top 0.5s 0s, transform 0.5s 0.5s;
+			}
+			&::after {
+				content: '';
+				display: block;
+				width: 100%;
+				height: 2px;
+				background: #fff;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				transition: bottom 0.5s 0s, transform 0.5s 0.5s;
+			}
+			span {
+				display: block;
+				width: 100%;
+				height: 2px;
+				background: #fff;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				margin-top: -1px;
+				transition: 1s;
+				text-indent: -9999px;
+			}
+			&.on {
+				&::before {
+					top: 50%;
+					margin-top: -1px;
+					transform: rotate(45deg);
+				}
+				&::after {
+					bottom: 50%;
+					margin-bottom: -1px;
+					transform: rotate(-45deg);
+				}
+				span {
+					transform: translateX(100%);
+					opacity: 0;
+				}
+			}
+		}
+
+		.menuMo {
+			width: 270px;
+			height: 100vh;
+			background: #111;
+			position: fixed;
+			top: 0;
+			left: -270px;
+			padding: 35px 30px;
+			z-index: 10;
+			transition: 0.5s;
+			display: none;
+			&.on {
+				left: 0;
+			}
+
+			h1 {
+				padding-bottom: 20px;
+				a {
+					display: block;
+					font: bold 24px/1 'arial';
+					color: #fff;
+					text-align: center;
+				}
+				span {
+					font-size: 12px;
+					color: #fff;
+				}
+			}
+			.close {
+				position: absolute;
+				right: 30px;
+				top: 40px;
+				font-size: 16px;
+				color: yellow;
+				background: transparent;
+				border: none;
+				cursor: pointer;
+			}
+			#gnbMo {
+				width: 100%;
+				float: left;
+				li {
+					a {
+						display: block;
+						width: 100%;
+						padding: 20px 0;
+						border-bottom: 1px solid #888;
+						font: bold 18px/1 'arial';
+						color: #fff;
+						text-align: left;
+					}
+				}
+			}
+		}
+	}
+}
+
+figure {
+	width: 100%;
+	margin: 0 auto;
+	height: calc(100vh);
+	position: relative;
+	overflow: hidden;
+	transition: 0.5s;
+
+	.frame {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		article {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			&.on {
+				.bg {
+					> div {
+						top: 0%;
+						opacity: 1;
+					}
+				}
+				.txtBox {
+					opacity: 1;
+				}
+				.line {
+					opacity: 1;
+				}
+			}
+
+			.bg {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-repeat: no-repeat;
+				background-position: 9999px;
+				background-size: cover;
+				opacity: 0.7;
+
+				> div {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: -100%;
+					left: 0;
+					opacity: 0;
+					background-image: inherit;
+					background-size: inherit;
+					background-repeat: inherit;
+					background-position: center;
+					transition-property: top, opacity;
+					transition-duration: 0.5s;
+					transform: translateZ(0);
+				}
+			}
+			.line {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				> div {
+					//width는 script에서 처리
+					height: 100%;
+					position: absolute;
+					top: 0;
+					//left는 script에서 처리
+					border-right: 1px solid #fff;
+					opacity: 0.2;
+				}
+			}
+			.txtBox {
+				padding: 50px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				transition: 0.5s;
+				opacity: 0;
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				// background: #222;
+				// box-shadow: 10px 10px 10px #111;
+
+				h2 {
+					font: 46px/1 'arial';
+					color: #eee;
+					text-shadow: 1px 1px 2px #000, 0 0 1em #434343, 0 0 0.2em #eee;
+
+					p {
+						font: 20px/1.3 'arial';
+						color: #eee;
+						margin-top: 20px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.intro_skill {
+	width: 100%;
+	height: auto;
+	position: relative;
+	overflow: hidden;
+	padding: 100px 0;
+
+	.inner {
+		display: flex;
+		justify-content: center;
+		transition: 0.5s;
+
+		.leftBox {
+			width: 50%;
+
+			h2 {
+				font: 36px/1 'arial';
+				color: #fff;
+				margin-bottom: 50px;
+			}
+			.intro_bg {
+				width: 100%;
+				height: 400px;
+
+				margin-bottom: 50px;
+				position: relative;
+				display: flex;
+				gap: 70px;
+
+				.pic {
+					position: relative;
+					width: 400px;
+					height: 100%;
+					border: 1px solid #fff;
+					background: url(../img/profil.jpg) no-repeat center/cover;
+					&::before {
+						position: absolute;
+						top: 0;
+						left: 0;
+						content: '';
+						display: block;
+						width: 100%;
+						height: 100%;
+						background: #fff;
+						transform: rotate(5deg);
+						z-index: -1;
+					}
+				}
+				.links {
+					width: 70px;
+					height: 80%;
+					padding: 20px 0;
+					background: #333;
+					border-radius: 7px;
+					box-shadow: 5px 5px 5px #111;
+					display: flex;
+					justify-content: space-between;
+					flex-direction: column;
+
+					a {
+						width: 100%;
+						display: block;
+						color: #fff;
+						text-align: center;
+						// margin-bottom: 30px;
+						font-size: 14px;
+						i {
+							display: block;
+							font-size: 20px;
+							text-shadow: none;
+							margin-bottom: 10px;
+						}
+					}
+				}
+			}
+			.txtBox {
+				color: #fff;
+				font: 16px/1.3 'arial';
+				margin-bottom: 30px;
+				transition: 0.5s;
+			}
+		}
+		.rightBox {
+			width: 50%;
+			h2 {
+				font: 36px/1 'arial';
+				color: #fff;
+				margin-bottom: 50px;
+			}
+			ul {
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				gap: 40px;
+				li {
+					width: calc(100% / 2 - 40px);
+					background: #333;
+					padding: 20px;
+					border-radius: 7px;
+					box-shadow: 5px 5px 5px #111;
+					.title {
+						margin-bottom: 20px;
+						display: flex;
+						align-items: center;
+						gap: 5px;
+						i {
+							text-shadow: none;
+							font-size: 28px;
+							color: yellow;
+						}
+						h3 {
+							font: 26px/1 'arial';
+							color: #fff;
+						}
+					}
+					span {
+						display: block;
+						font: 14px/1.7 'arial';
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}
+
+.history_career {
+	width: 100%;
+	height: auto;
+	position: relative;
+	overflow: hidden;
+	padding: 100px 0;
+	.inner {
+		display: flex;
+		justify-content: center;
+		transition: 0.5s;
+
+		.leftBox {
+			width: 50%;
+			h2 {
+				font: 36px/1 'arial';
+				color: #fff;
+				margin-bottom: 50px;
+			}
+			ul {
+				width: 100%;
+				li {
+					width: 100%;
+					padding: 0px 0 20px;
+					padding-left: 1.25rem;
+					border-left: 1px solid yellow;
+					color: #fff;
+					&:last-child {
+						padding-bottom: 0;
+					}
+					&::before {
+						content: '';
+						position: absolute;
+						left: 0;
+						width: 8px;
+						height: 8px;
+						border-radius: 4px;
+						background-color: yellow;
+						transform: translateX(-50%);
+					}
+					p {
+						transform: translateY(-6px);
+						margin-bottom: 5px;
+						font-size: 16px;
+
+						&:nth-of-type(2) {
+							color: yellow;
+							font-size: 12px;
+						}
+					}
+				}
+			}
+		}
+		.rightBox {
+			width: 50%;
+			h2 {
+				font: 36px/1 'arial';
+				color: #fff;
+				margin-bottom: 50px;
+			}
+
+			ul {
+				width: 100%;
+				li {
+					width: 100%;
+					overflow: hidden;
+					padding: 20px 0 20px 5px;
+					position: relative;
+					border-bottom: 1px solid yellow;
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+
+					&.on {
+						.txtBox {
+							max-height: 300px;
+							opacity: 1;
+							margin-top: 30px;
+						}
+						.title {
+							&::before {
+								transform: rotate(135deg);
+								color: yellow;
+							}
+						}
+					}
+
+					.title {
+						position: relative;
+						width: 100%;
+						display: flex;
+						align-items: center;
+						gap: 30px;
+						color: #fff;
+						transition: 0.5s;
+						cursor: pointer;
+						&::before {
+							content: '+';
+							color: #fff;
+							font-size: 34px;
+							position: absolute;
+							right: 30px;
+							transform-origin: center center;
+							transition: all 1s;
+						}
+
+						h3 {
+							font-size: 16px;
+						}
+						p {
+							font-size: 14px;
+						}
+						> span {
+							font-size: 12px;
+							color: yellow;
+						}
+					}
+					.txtBox {
+						width: 100%;
+						max-height: 0;
+						transition: 0.5s;
+						opacity: 0;
+						color: #fff;
+						h3 {
+							font-size: 16px;
+							margin-bottom: 15px;
+						}
+						p {
+							font-size: 14px;
+							margin-bottom: 5px;
+							> span {
+								font-size: 12px;
+								color: #bbb;
+								display: inline-block;
+								margin-left: 5px;
+								margin-right: 5px;
+							}
+							&:last-of-type {
+								margin-bottom: 15px;
+							}
+							a {
+								color: yellow;
+							}
+						}
+						span {
+							font-size: 14px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.project {
+	width: 100%;
+	height: auto;
+	position: relative;
+	overflow: hidden;
+	padding: 100px 0;
+	.inner {
+		transition: 0.5s;
+		h2 {
+			font: 36px/1 'arial';
+			color: #fff;
+			margin-bottom: 50px;
+			display: flex;
+			justify-content: space-between;
+		}
+		> .leftBox {
+			height: 100%;
+			width: 100%;
+			.swiper {
+				width: 100%;
+				height: 550px;
+				.swiper-slide {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					border-radius: 18px;
+					font-size: 22px;
+					font-weight: bold;
+					color: #fff;
+					background: #333;
+					border-radius: 7px;
+					box-shadow: 5px 5px 5px #111;
+					overflow: hidden;
+
+					.leftBox {
+						height: 100%;
+						width: 40%;
+						background: #222;
+						.txtBox {
+							padding: 50px 0 50px 50px;
+
+							> h3 {
+								font-size: 20px;
+								margin-bottom: 30px;
+								span {
+									color: yellow;
+									font-size: 30px;
+								}
+							}
+							.info {
+								margin-bottom: 30px;
+								h4 {
+									font-size: 18px;
+									margin-bottom: 10px;
+									text-shadow: none;
+								}
+								p {
+									font-size: 16px;
+									color: #ccc;
+									margin-bottom: 5px;
+									text-shadow: none;
+									span {
+										font-size: 16px;
+										color: #fff;
+										text-shadow: none;
+									}
+								}
+							}
+							.feature {
+								margin-bottom: 30px;
+								h4 {
+									font-size: 18px;
+									margin-bottom: 10px;
+									text-shadow: none;
+								}
+								ul {
+									padding-left: 20px;
+									li {
+										font-size: 16px;
+										list-style: disc;
+										text-shadow: none;
+									}
+								}
+							}
+
+							.btns {
+								display: flex;
+								gap: 10px;
+								a {
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									width: 100px;
+									height: 30px;
+									border: 1px solid #fff;
+									color: #fff;
+									font-size: 14px;
+									padding: 15px 10px;
+									text-shadow: none;
+									background: #111;
+								}
+							}
+						}
+					}
+					.rightBox {
+						height: 100%;
+						width: 60%;
+						.imgBox {
+							width: 100%;
+							height: 100%;
+							position: relative;
+							// background: url(../img/aa.png) no-repeat center/cover;
+							.pic {
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								transform: translate(-50%, -50%) scale(1.15);
+								width: 553px;
+								height: 400px;
+								background: url(../img/project01.png) no-repeat center/cover;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.scroll_reset {
+	position: fixed;
+	right: 5vw;
+	bottom: 5vw;
+	color: #fff;
+	font-size: 20px;
+	background: transparent;
+	border: none;
+	opacity: 0;
+	display: none;
+	z-index: 5;
+	cursor: pointer;
+
+	&.on {
+		display: block;
+		opacity: 1;
+	}
+}
+
+@media screen and (max-width: '1400px') {
+	header {
+		.inner {
+			width: 100%;
+			.gnb_scroll {
+				display: none;
+			}
+			.btnCall {
+				display: block;
+			}
+			.menuMo {
+				display: block;
+			}
+		}
+	}
+
+	.intro_skill {
+		padding: 50px 0;
+		.inner {
+			width: 100%;
+			padding: 0 40px;
+			flex-wrap: wrap;
+
+			.leftBox {
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				h2 {
+					display: block;
+					width: 100%;
+				}
+				.intro_bg {
+					width: 50%;
+				}
+				.txtBox {
+					padding: 20px;
+					width: 50%;
+				}
+			}
+			.rightBox {
+				width: 100%;
+				ul {
+					justify-content: flex-start;
+					li {
+						width: calc(100% / 3 - 40px);
+					}
+				}
+			}
+		}
+	}
+
+	.history_career {
+		padding: 50px 0;
+		.inner {
+			width: 100%;
+			padding: 0 40px;
+			.leftBox {
+				ul {
+					li {
+						&::before {
+							left: 40px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.project {
+		padding: 50px 0;
+		.inner {
+			width: 100%;
+			padding: 0 40px;
+			h2 {
+				font: 36px/1 'arial';
+			}
+			> .leftBox {
+				.swiper {
+					.swiper-slide {
+						.leftBox {
+							.txtBox {
+								padding: 50px 20px 20px 20px;
+
+								> h3 {
+									font-size: 18px;
+									span {
+										font-size: 26px;
+									}
+								}
+								.info {
+									h4 {
+										font-size: 16px;
+									}
+									p {
+										font-size: 14px;
+										span {
+											font-size: 14px;
+										}
+									}
+								}
+								.feature {
+									h4 {
+										font-size: 16px;
+									}
+									ul {
+										li {
+											font-size: 14px;
+										}
+									}
+								}
+
+								.btns {
+									a {
+										font-size: 12px;
+										padding: 0;
+										width: 80px;
+									}
+								}
+							}
+						}
+						.rightBox {
+							height: 100%;
+							width: 60%;
+							.imgBox {
+								.pic {
+									transform: translate(-50%, -50%) scale(0.85);
+									width: 553px;
+									height: 400px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: '900px') {
+	figure {
+		height: calc(80vh);
+		.frame {
+			article {
+				.txtBox {
+					h2 {
+						font-size: 36px;
+						p {
+							font-size: 18px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.intro_skill {
+		.inner {
+			.leftBox {
+				margin-bottom: 30px;
+				.intro_bg {
+					width: 100%;
+				}
+				.txtBox {
+					padding: 0px;
+					width: 100%;
+				}
+			}
+			.rightBox {
+				ul {
+					li {
+						width: calc(100% / 2 - 40px);
+					}
+				}
+			}
+		}
+	}
+
+	.history_career {
+		.inner {
+			flex-wrap: wrap;
+			gap: 50px;
+
+			.leftBox {
+				width: 100%;
+				h2 {
+					font: 36px/1 'arial';
+					margin-bottom: 30px;
+				}
+				ul {
+					li {
+						&::before {
+							left: 40px;
+						}
+					}
+				}
+			}
+			.rightBox {
+				width: 100%;
+				h2 {
+					margin-bottom: 30px;
+				}
+
+				ul {
+					width: 100%;
+					li {
+						width: 100%;
+						overflow: hidden;
+						padding: 20px 0 20px 5px;
+						position: relative;
+						border-bottom: 1px solid yellow;
+						display: flex;
+						flex-wrap: wrap;
+						align-items: center;
+
+						.title {
+							flex-wrap: wrap;
+							gap: 5px;
+							h3 {
+								font-size: 16px;
+								margin-right: 10px;
+							}
+							p {
+								font-size: 14px;
+							}
+							> span {
+								width: 100%;
+								display: block;
+								font-size: 12px;
+								color: yellow;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.project {
+		.inner {
+			> .leftBox {
+				.swiper {
+					height: 900px;
+					.swiper-slide {
+						flex-wrap: wrap;
+						.leftBox {
+							width: 100%;
+							height: 50%;
+							display: flex;
+							justify-content: flex-start;
+							align-items: center;
+							padding: 20px 20px 20px 20px;
+							.txtBox {
+								padding: 0;
+								> h3 {
+									font-size: 18px;
+									span {
+										font-size: 26px;
+									}
+								}
+								.info {
+									h4 {
+										font-size: 16px;
+									}
+									p {
+										font-size: 14px;
+										span {
+											font-size: 14px;
+										}
+									}
+								}
+								.feature {
+									h4 {
+										font-size: 16px;
+									}
+									ul {
+										li {
+											font-size: 14px;
+										}
+									}
+								}
+
+								.btns {
+									a {
+										font-size: 12px;
+										padding: 0;
+										width: 80px;
+									}
+								}
+							}
+						}
+						.rightBox {
+							width: 100%;
+							height: 50%;
+							.imgBox {
+								.pic {
+									transform: translate(-50%, -50%) scale(0.75);
+									width: 553px;
+									height: 400px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: '540px') {
+	header {
+		.inner {
+			h1 {
+				font-size: 16px;
+			}
+		}
+	}
+
+	figure {
+		height: calc(60vh);
+		.frame {
+			article {
+				.txtBox {
+					h2 {
+						font-size: 22px;
+						p {
+							font-size: 14px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.intro_skill {
+		.inner {
+			padding: 0 30px;
+			h2 {
+				font-size: 26px;
+			}
+			.leftBox {
+				margin-bottom: 30px;
+				gap: 60px;
+				h2 {
+					font-size: 26px;
+					margin-bottom: 10px;
+				}
+				.intro_bg {
+					width: 100%;
+					flex-wrap: wrap;
+					gap: 40px;
+					.pic {
+						width: 100%;
+					}
+					.links {
+						width: 100%;
+						height: 50px;
+						flex-direction: inherit;
+						padding: 0;
+						align-items: center;
+						a {
+							font-size: 12px;
+							i {
+								font-size: 16px;
+								margin-bottom: 5px;
+							}
+						}
+					}
+				}
+				.txtBox {
+					padding: 0px;
+					width: 100%;
+					font-size: 12px;
+				}
+			}
+			.rightBox {
+				h2 {
+					margin-bottom: 30px;
+					font-size: 26px;
+				}
+				ul {
+					gap: 20px;
+					li {
+						width: calc(100%);
+						.title {
+							i {
+								font-size: 16px;
+							}
+							h3 {
+								font-size: 14px;
+							}
+						}
+						span {
+							font-size: 12px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.history_career {
+		.inner {
+			padding: 0 30px;
+
+			.leftBox {
+				h2 {
+					font: 26px/1 'arial';
+					margin-bottom: 30px;
+				}
+				ul {
+					li {
+						p {
+							font-size: 14px;
+						}
+					}
+				}
+			}
+			.rightBox {
+				h2 {
+					font: 30px/1 'arial';
+					margin-bottom: 10px;
+				}
+
+				ul {
+					li {
+						padding: 20px 0 20px 5px;
+						&.on {
+							.txtBox {
+								max-height: 400px;
+							}
+						}
+						.title {
+							flex-wrap: wrap;
+							gap: 5px;
+							&::before {
+								right: 10px;
+							}
+							h3 {
+								font-size: 14px;
+								margin-right: 10px;
+							}
+							p {
+								font-size: 14px;
+							}
+						}
+						.txtBox {
+							h3 {
+								font-size: 14px;
+							}
+							p {
+								font-size: 14px;
+								> span {
+									font-size: 12px;
+								}
+							}
+							span {
+								font-size: 12px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.project {
+		.inner {
+			h2 {
+				font-size: 26px;
+			}
+			> .leftBox {
+				.swiper {
+					height: 500px;
+					.swiper-slide {
+						flex-wrap: wrap;
+						.leftBox {
+							width: 100%;
+							height: 100%;
+							.txtBox {
+								padding: 0;
+								> h3 {
+									font-size: 16px;
+									span {
+										font-size: 24px;
+									}
+								}
+								.info {
+									h4 {
+										font-size: 14px;
+									}
+									p {
+										font-size: 14px;
+										span {
+											font-size: 12px;
+										}
+									}
+								}
+								.feature {
+									h4 {
+										font-size: 14px;
+									}
+									ul {
+										li {
+											font-size: 12px;
+										}
+									}
+								}
+							}
+						}
+						.rightBox {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
