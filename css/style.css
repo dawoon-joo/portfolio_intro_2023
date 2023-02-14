@@ -679,6 +679,24 @@ figure .frame article .txtBox h2 p {
   height: 400px;
   background: url(../img/project01.png) no-repeat center/cover;
 }
+.project .inner > .leftBox .swiper .swiper-slide:nth-of-type(2) .rightBox {
+  height: 100%;
+  width: 60%;
+}
+.project .inner > .leftBox .swiper .swiper-slide:nth-of-type(2) .rightBox .imgBox {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.project .inner > .leftBox .swiper .swiper-slide:nth-of-type(2) .rightBox .imgBox .pic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.15);
+  width: 553px;
+  height: 400px;
+  background: url(../img/project02.png) no-repeat center/cover;
+}
 
 .scroll_reset {
   position: fixed;
@@ -798,6 +816,15 @@ figure .frame article .txtBox h2 p {
     width: 60%;
   }
   .project .inner > .leftBox .swiper .swiper-slide .rightBox .imgBox .pic {
+    transform: translate(-50%, -50%) scale(0.85);
+    width: 553px;
+    height: 400px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide:nth-of-type(2) .rightBox {
+    height: 100%;
+    width: 60%;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide:nth-of-type(2) .rightBox .imgBox .pic {
     transform: translate(-50%, -50%) scale(0.85);
     width: 553px;
     height: 400px;
@@ -924,6 +951,15 @@ figure .frame article .txtBox h2 p {
     height: 50%;
   }
   .project .inner > .leftBox .swiper .swiper-slide .rightBox .imgBox .pic {
+    transform: translate(-50%, -50%) scale(0.75);
+    width: 553px;
+    height: 400px;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide:nth-of-type(2) .rightBox {
+    width: 100%;
+    height: 50%;
+  }
+  .project .inner > .leftBox .swiper .swiper-slide:nth-of-type(2) .rightBox .imgBox .pic {
     transform: translate(-50%, -50%) scale(0.75);
     width: 553px;
     height: 400px;
