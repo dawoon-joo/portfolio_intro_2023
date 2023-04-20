@@ -13,9 +13,6 @@ function activeToggle(e) {
 	if (isOn) {
 		e.currentTarget.closest('li').classList.remove('on');
 	} else {
-		for (let el of btns) {
-			el.closest('li').classList.remove('on');
-		}
 		e.currentTarget.closest('li').classList.add('on');
 	}
 }
